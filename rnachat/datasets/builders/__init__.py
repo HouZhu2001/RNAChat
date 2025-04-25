@@ -7,7 +7,8 @@
 
 from rnachat.datasets.builders.base_dataset_builder import load_dataset_config
 from rnachat.common.registry import registry
-from rnachat.datasets.builders.rna_text_pair_builder import RNABuilder
+# from rnachat.datasets.builders.rna_text_pair_builder import RNABuilder
+from rnachat.datasets.builders.rna_go_pair_builder import RNABuilder
 __all__ = [
     "RNABuilder",
 ]
