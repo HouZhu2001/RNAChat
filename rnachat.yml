@@ -1,0 +1,29 @@
+name: rnachat
+channels:
+  - conda-forge
+  - defaults
+  - pytorch
+
+dependencies:
+  - numpy=1.26.4
+  - pip=25.0
+  - setuptools
+  - typing_extensions
+  - wheel
+  - zlib
+  - pip:
+      - absl-py==2.1.0
+      - accelerate==1.4.0
+      - aiofiles==24.1.0
+      - antlr4-python3-runtime==4.9.3
+      - bitsandbytes==0.45.5
+      - decord==0.6.0
+      - einops==0.8.1
+      # - flash-attn==2.3.2 # you may want to install this after cloning if it fails here
+      - huggingface-hub==0.29.2
+      - omegaconf==2.3.0
+      - openai==0.27.0
+      - orjson==3.10.15
+      - pandas==2.2.3
+      - tqdm==4.67.1
+      - transformers==4.28.0

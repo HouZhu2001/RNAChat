@@ -1,0 +1,33 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: rnachat-job
+  namespace: ecepxie
+spec:
+  template:
+    metadata:
+      labels:
+        app: rnachat
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: rnachat
+          image: hankzhu/rnachat:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 7860
+          resources:
+            limits:
+              nvidia.com/gpu: 4
+              cpu: "4"
+              memory: "4Gi"
+            requests:
+              cpu: "4"
+              memory: "4Gi"
+          volumeMounts:
+            - name: rnachat-data
+              mountPath: /app/rnachat/checkpoints
+      volumes:
+        - name: rnachat-data
+          persistentVolumeClaim:
+            claimName: rnachat-pvc
