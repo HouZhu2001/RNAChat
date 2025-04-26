@@ -31,8 +31,6 @@ spec:
           pip install . && \
           pip install flash-attn==2.3.2 && \
           cd ../../ && \
-          echo "Sleeping for 30 minutes..." && \
-          sleep 1800 && \
           python3 train.py && \
           tail -f /dev/null
       resources:

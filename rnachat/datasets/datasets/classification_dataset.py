@@ -15,7 +15,7 @@ questions = ["What is the functionality of this RNA in the process:",
 class ClassificationDataset(BaseDataset):
     def __init__(self, seq_path, split):
 
-        df = pd.read_csv("rna_go.csv", index_col="rna_id")# Convert to dictionary
+        df = pd.read_csv("rna_go.csv")# Convert to dictionary
         sequence_dict = df.set_index("rna_id")["sequence"].to_dict()
 
         self.rna_dict = {}
