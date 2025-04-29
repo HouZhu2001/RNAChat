@@ -21,7 +21,7 @@ class ClassificationDataset(BaseDataset):
         self.rna_dict = {}
         for index, row in df.iterrows():
             go_term_dict = {col: row[col] if pd.notna(row[col]) else None for col in df.columns}
-            self.rna_dict[index] = go_term_dict
+            self.rna_dict[row['rna_id']] = go_term_dict
 
         
         self.go_list = [(rna_id, sequence_dict[rna_id], go_term, qualifier) for rna_id, value in self.rna_dict.items() for go_term, qualifier in value.items()]
