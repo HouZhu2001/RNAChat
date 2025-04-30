@@ -43,11 +43,13 @@ class RNAChat(Blip2Base):
             
         parser = ArgumentParser()
         self.args_ = parser.parse_args()
+        print("args:", self.args_)
         self.args_.device = torch.cuda.current_device()
         self.low_resource = low_resource
         
         self.tokenizer = self.alphabet.batch_tokenize
         print('Loading LLAMA model')
+        print("Llama model: ", llama_model)
         self.llama_tokenizer = LlamaTokenizer.from_pretrained(llama_model, use_fast=False)
 
         self.llama_tokenizer.pad_token = self.llama_tokenizer.eos_token
