@@ -6,17 +6,17 @@ model:
   freeze_llama: True
   freeze_lp: True
 
-  llama_model: ""
-  
+  llama_model: "meta-llama/Llama-2-7b-hf"
+
   # generation configs
   prompt: ""
 
   max_txt_len: 405
   end_sym: "###"
   low_resource: True
-  peft_ckpt: '' # stage-2 ckpt
-  glm_load_path:  '' # should replace with your local path of protein GLM model.
-  stage1_ckpt: '' # should replace with your local path of glm ckpt
+  peft_ckpt: "" # stage-2 ckpt
+  glm_load_path: "" # should replace with your local path of protein GLM model.
+  stage1_ckpt: "" # should replace with your local path of glm ckpt
 
 datasets:
   rna:
@@ -32,4 +32,3 @@ run:
   dist_url: "env://"
   distributed: True
   printable: True
-
