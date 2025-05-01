@@ -43,7 +43,6 @@ class RNAChat(Blip2Base):
             
         parser = ArgumentParser()
         self.args_ = parser.parse_args()
-        print("args:", self.args_)
         self.args_.device = torch.cuda.current_device()
         self.low_resource = low_resource
         
@@ -195,6 +194,9 @@ class RNAChat(Blip2Base):
     def from_config(cls, cfg):
 
         llama_model = cfg.get("llama_model")
+        print("Llama model from cfg: ", llama_model)
+
+        llama_model = "lmsys/vicuna-7b-delta-v0"
 
         freeze_rna_encoder = cfg.get("freeze_rna_encoder", False)
         freeze_lp = cfg.get("freeze_lp", False)
