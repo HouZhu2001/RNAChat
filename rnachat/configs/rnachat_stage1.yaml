@@ -6,7 +6,7 @@ model:
   freeze_lp: False
   freeze_llama: True
 
-  llama_model: "lmsys/vicuna-7b-delta-v0"
+  llama_model: "lmsys/vicuna-13b-v1.3"
   prompt: ""
 
   max_txt_len: 405
