@@ -6,7 +6,7 @@ model:
   freeze_llama: True
   freeze_lp: True
 
-  llama_model: "meta-llama/Llama-2-7b-hf"
+  llama_model: "lmsys/vicuna-7b-delta-v0"
 
   # generation configs
   prompt: ""
