@@ -229,8 +229,8 @@ class RNAChat(Blip2Base):
             ckpt = torch.load(stage1_ckpt, map_location="cpu")
 
             print(f"Using LLaMA model: {cfg.llama_model}")
-            print(f"llama_model config hidden size: {model.llama.config.hidden_size}")
-            
+            print(f"llama_model config hidden size: {model.llama_model.config.hidden_size}")
+
             msg = model.load_state_dict(ckpt['model'], strict=False)
         
         peft_ckpt = cfg.get("peft_ckpt", "")  # load weights of LoRA
