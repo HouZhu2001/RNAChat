@@ -29,6 +29,7 @@ spec:
           git clone https://github.com/lbcb-sci/RiNALMo.git /RNAChat/rnachat/rinalmo && \
           cd /RNAChat/rnachat/rinalmo && \
           pip install . && \
+          MAX_JOBS=8 pip -v install flash-attn==2.3.2 --no-build-isolation && \
           pip install flash-attn==2.3.2 && \
           cd ../../ && \
           python3 train.py && \

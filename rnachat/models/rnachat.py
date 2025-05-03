@@ -196,7 +196,7 @@ class RNAChat(Blip2Base):
         llama_model = cfg.get("llama_model")
         print("Llama model from cfg: ", llama_model)
 
-        llama_model = "lmsys/vicuna-7b-delta-v0"
+        llama_model = "lmsys/vicuna-13b-v1.3"
 
         freeze_rna_encoder = cfg.get("freeze_rna_encoder", False)
         freeze_lp = cfg.get("freeze_lp", False)

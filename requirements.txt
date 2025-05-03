@@ -44,3 +44,5 @@ peft==0.10.0  # Choose version compatible with transformers==4.28.0
 filelock==3.13.3
 
 sentencepiece
+
+ninja
