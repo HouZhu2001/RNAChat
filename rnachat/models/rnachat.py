@@ -231,6 +231,10 @@ class RNAChat(Blip2Base):
             print(f"Using LLaMA model: {cfg.llama_model}")
             print(f"llama_model config hidden size: {model.llama_model.config.hidden_size}")
 
+            print("rinalmo_llama_proj weight shape:", model.rinalmo_llama_proj.weight.shape)
+            print("Expected from checkpoint:", ckpt['model']['rinalmo_llama_proj.weight'].shape)
+
+
             msg = model.load_state_dict(ckpt['model'], strict=False)
         
         peft_ckpt = cfg.get("peft_ckpt", "")  # load weights of LoRA
