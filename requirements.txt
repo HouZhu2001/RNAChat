@@ -46,3 +46,4 @@ filelock==3.13.3
 sentencepiece
 
 ninja
+pybind11
