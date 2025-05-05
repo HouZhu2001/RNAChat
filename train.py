@@ -34,7 +34,7 @@ from rnachat.tasks import *
 
 def parse_args():
     parser = argparse.ArgumentParser(description="Training")
-    parser.add_argument("--cfg-path", default="configs/rnachat_stage1.yaml", help="path to configuration file.")
+    parser.add_argument("--cfg-path", default="rnachat/configs/rnachat_stage1.yaml", help="path to configuration file.")
     parser.add_argument(
         "--options",
         nargs="+",
