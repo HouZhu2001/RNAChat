@@ -8,6 +8,8 @@
 import datetime
 import functools
 import os
+import logging
+
 
 import torch
 import torch.distributed as dist
@@ -32,8 +34,10 @@ def setup_for_distributed(is_master):
 
 def is_dist_avail_and_initialized():
     if not dist.is_available():
+        logging.warning("Distributed package is not available.")
         return False
     if not dist.is_initialized():
+        logging.warning("Distributed package is not initialized.")
         return False
     return True
 
