@@ -11,7 +11,7 @@ model:
 
   max_txt_len: 405
   end_sym: "###"
-  low_resource: True
+  low_resource: False
   embedding_agg: 1
   peft_ckpt: ""
   stage1_ckpt: "rnachat/checkpoints/checkpoint_stage1.pth"

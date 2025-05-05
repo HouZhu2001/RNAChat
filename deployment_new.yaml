@@ -33,17 +33,17 @@ spec:
           MAX_JOBS=7 pip -v install flash-attn==2.3.2 --no-build-isolation && \
           pip install flash-attn==2.3.2 && \
           cd ../../ && \
-          python3 train.py && \
+          torchrun --nproc_per_node=2 train.py && \
           cp -r /RNAChat/rnachat/checkpoints/* /data/ && \
           tail -f /dev/null
       resources:
         limits:
           cpu: 16
-          nvidia.com/gpu: 2
+          nvidia.com/gpu: 1
           memory: 32Gi
         requests:
           cpu: 16
-          nvidia.com/gpu: 2
+          nvidia.com/gpu: 1
           memory: 32Gi
       volumeMounts:
         - mountPath: /data
@@ -73,23 +73,23 @@ spec:
                   - NVIDIA-H100-SXM
                   - NVIDIA-H100-PCIe
 
-                  - NVIDIA-RTX-A4000
-                  - NVIDIA-RTX-A4500
-                  - NVIDIA-RTX-A5000
-                  - NVIDIA-RTX-A6000 # 48GB
-                  - NVIDIA-RTX-3090
-                  - NVIDIA-RTX-4090
-                  - NVIDIA-RTX-A10
+                  # - NVIDIA-RTX-A4000
+                  # - NVIDIA-RTX-A4500
+                  # - NVIDIA-RTX-A5000
+                  - NVIDIA-RTX-A6000
+                  # - NVIDIA-RTX-3090
+                  # - NVIDIA-RTX-4090
+                  # - NVIDIA-RTX-A10
                   - NVIDIA-RTX-6000-Ada
 
                   - NVIDIA-GH200-480GB
 
-                  - NVIDIA-L4
+                  # - NVIDIA-L4
                   - NVIDIA-L40
 
                   - Quadro-RTX-8000
 
-                  - NVIDIA-3090
-                  - NVIDIA-4090
-                  - NVIDIA-GeForce-RTX-4090
-                  - NVIDIA-GeForce-RTX-3090
+                  # - NVIDIA-3090
+                  # - NVIDIA-4090
+                  # - NVIDIA-GeForce-RTX-4090
+                  # - NVIDIA-GeForce-RTX-3090
