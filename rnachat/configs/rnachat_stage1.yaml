@@ -55,7 +55,7 @@ run:
   valid_splits: ["valid"]
 
   device: "cuda"
-  world_size: 1
+  world_size: 2
   dist_url: "env://"
   distributed: True
   use_dist_eval_sampler: False
