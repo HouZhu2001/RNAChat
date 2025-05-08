@@ -81,6 +81,15 @@ class RunnerBase:
         """
         A property to get the DDP-wrapped model on the device.
         """
+
+        if self._model is None:
+            logging.warning("Model has not been set yet.")
+
+        # 🔍 Check for meta tensors before moving to device
+        for name, param in self._model.named_parameters():
+            if param.device.type == "meta":
+                print(f"[DEBUG] Parameter '{name}' is on 'meta' device before model.to(self.device).")
+    
         # move model to device
         if self._model.device != self.device:
             self._model = self._model.to(self.device)

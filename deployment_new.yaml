@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: rnachat-gpus-map # you prefered pod name
+  name: rnachat-gpus-map2 # you prefered pod name
 spec:
   volumes:
     - name: rnachat-data
@@ -13,7 +13,7 @@ spec:
         sizeLimit: 128Gi
   containers:
     - name: vol-container
-      image: pytorch/pytorch:2.2.0-cuda11.8-cudnn8-devel # I recommend this image or continuumio/miniconda3
+      image: pytorch/pytorch:2.2.0-cuda11.8-cudnn8-devel
       workingDir: /
       command: ["/bin/bash", "-c"]
       args:
@@ -31,20 +31,19 @@ spec:
           cd /RNAChat/rnachat/rinalmo && \
           pip install . && \
           MAX_JOBS=7 pip -v install flash-attn==2.3.2 --no-build-isolation && \
-          pip install flash-attn==2.3.2 && \
           cd ../../ && \
-          torchrun --nproc_per_node=2 train.py && \
+          python3 train.py && \
           cp -r /RNAChat/rnachat/checkpoints/* /data/ && \
           tail -f /dev/null
       resources:
         limits:
-          cpu: 16
+          cpu: 8
           nvidia.com/gpu: 1
           memory: 32Gi
         requests:
-          cpu: 16
+          cpu: 4
           nvidia.com/gpu: 1
-          memory: 32Gi
+          memory: 16Gi
       volumeMounts:
         - mountPath: /data
           name: rnachat-data
