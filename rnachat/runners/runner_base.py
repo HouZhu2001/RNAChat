@@ -86,9 +86,9 @@ class RunnerBase:
             logging.warning("Model has not been set yet.")
 
         # 🔍 Check for meta tensors before moving to device
-        for name, param in self._model.named_parameters():
-            if param.device.type == "meta":
-                print(f"[DEBUG] Parameter '{name}' is on 'meta' device before model.to(self.device).")
+        # for name, param in self._model.named_parameters():
+        #     if param.device.type == "meta":
+        #         print(f"[DEBUG] Parameter '{name}' is on 'meta' device before model.to(self.device).")
     
         # move model to device
         if self._model.device != self.device:

@@ -226,7 +226,11 @@ class RNAChat(Blip2Base):
             import os
             print(os.getcwd())
             print("Load GLM and LP Checkpoint: {}".format(stage1_ckpt))
+            assert os.path.exists(stage1_ckpt), "Checkpoint file does not exist!"
             ckpt = torch.load(stage1_ckpt, map_location="cpu")
+            assert "model" in ckpt, "[ERROR] 'model' key not found in checkpoint!"
+            print("[INFO] Top keys in checkpoint:", list(ckpt.keys()))
+            print("[INFO] Sample model keys in checkpoint:", list(ckpt["model"].keys())[:5])
 
             print(f"Using LLaMA model: {cfg.llama_model}")
             print(f"llama_model config hidden size: {model.llama_model.config.hidden_size}")
@@ -234,13 +238,24 @@ class RNAChat(Blip2Base):
             print("rinalmo_llama_proj weight shape:", model.rinalmo_llama_proj.weight.shape)
             print("Expected from checkpoint:", ckpt['model']['rinalmo_llama_proj.weight'].shape)
 
-
             msg = model.load_state_dict(ckpt['model'], strict=False)
+            print("[DEBUG] load_state_dict result:", msg)
+
+            # Check for meta tensors
+            has_meta = False
+            for name, param in model.named_parameters():
+                if param.device.type == "meta":
+                    print(f"[ERROR] Parameter still on meta: {name}")
+                    has_meta = True
+
+            if has_meta:
+                raise RuntimeError("Model still has meta tensors after loading checkpoint!")
         
         peft_ckpt = cfg.get("peft_ckpt", "")  # load weights of LoRA
         if peft_ckpt:
             print("Load LoRA Checkpoint: {}".format(peft_ckpt))
             ckpt = torch.load(peft_ckpt, map_location="cpu")
             msg = model.load_state_dict(ckpt['model'], strict=False)
+            print("[DEBUG] LoRA load_state_dict result:", msg)
             
         return model

@@ -30,7 +30,7 @@ spec:
           git clone https://github.com/lbcb-sci/RiNALMo.git /RNAChat/rnachat/rinalmo && \
           cd /RNAChat/rnachat/rinalmo && \
           pip install . && \
-          MAX_JOBS=7 pip -v install flash-attn==2.3.2 --no-build-isolation && \
+          MAX_JOBS=2 pip -v install flash-attn==2.3.2 --no-build-isolation && \
           cd ../../ && \
           python3 train.py && \
           cp -r /RNAChat/rnachat/checkpoints/* /data/ && \
@@ -39,11 +39,11 @@ spec:
         limits:
           cpu: 8
           nvidia.com/gpu: 1
-          memory: 32Gi
+          memory: 24Gi
         requests:
-          cpu: 4
+          cpu: 2
           nvidia.com/gpu: 1
-          memory: 16Gi
+          memory: 2Gi
       volumeMounts:
         - mountPath: /data
           name: rnachat-data

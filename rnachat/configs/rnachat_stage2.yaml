@@ -14,8 +14,8 @@ model:
   end_sym: "###"
   low_resource: False
   embedding_agg: 1
-  peft_ckpt: ""
-  stage1_ckpt: "rnachat/checkpoints/checkpoint_stage2.pth"
+  peft_ckpt: "rnachat/checkpoints/checkpoint_stage2.pth"
+  stage1_ckpt: "rnachat/checkpoints/checkpoint_stage1.pth"
 
 datasets:
   rna:
