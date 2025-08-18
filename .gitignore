@@ -1,0 +1,118 @@
+# Model checkpoints and weights
+rnachat/checkpoints/*.pth
+*.pth
+*.pt
+*.ckpt
+*.safetensors
+*.bin
+
+# Environment variables and API keys
+.env
+.env.local
+.env.*.local
+.env.production
+.env.development
+*.key
+*.pem
+*.p12
+*.pfx
+api_keys.txt
+secrets.txt
+credentials.json
+service_account.json
+
+# Results and output files
+results/
+outputs/
+logs/
+*.json
+*.csv
+*.tsv
+*.xlsx
+*.xls
+
+# Data files (contain sensitive information)
+rna_go.csv
+rna_summary_2d.csv
+
+# Python cache and compiled files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+*.egg-info/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+*.ipynb_checkpoints/
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv/
+.env/
+.conda/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+*.bak
+*.backup
+
+# Large data files
+*.h5
+*.hdf5
+*.npy
+*.npz
+*.pkl
+*.pickle
+
+# Docker
+.dockerignore
+
+# Kubernetes and deployment files (contain sensitive URLs and configurations)
+*.yaml.bak
+*.yml.bak
+deployment*.yaml
+deployment*.yml
+*.yaml
+*.yml
+
+# Backup files
+*.orig
+*.rej
+
+# Local configuration
+config.local.*
+settings.local.*
+
+# Personal notes
+metrics.txt
